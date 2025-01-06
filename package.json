@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint-fix": "next lint --fix",
-    "eslint-fix": "eslint --fix"
+    "lint-fix": "next lint --fix"
   },
   "dependencies": {
     "next": "15.1.2",
