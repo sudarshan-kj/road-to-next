@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ticketPath } from "@/paths";
 import { initialTickets } from "@/data";
-import clsx from "clsx";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const CheckIcon = () => (
   <svg
@@ -71,30 +71,30 @@ export default function TicketsPage() {
       </div>
       <div className="flex-1 flex flex-col  items-center gap-y-4">
         {initialTickets.map((ticket, index) => (
-          <div
+          <Card
             key={ticket.id}
             style={{
               animationDelay: `${index * 100}ms`,
               animationFillMode: "both",
             }}
-            className="w-full max-w-[420px] p-4 border border-slate-100 rounded  animate-fade-from-top"
+            className="max-w-105 animate-fade-from-top"
           >
-            <div>{TICKET_ICONS[ticket.status]}</div>
-            <h2 className="text-lg font-semibold">{ticket.title}</h2>
-            <p
-              className={clsx("text-sm  truncate text-slate-400", {
-                "line-through": ticket.status === "DONE",
-              })}
-            >
+            <CardHeader>
+              {TICKET_ICONS[ticket.status]}
+              {ticket.title}
+            </CardHeader>
+
+            <CardContent className="flex flex-col gap-2">
               {ticket.content}
-            </p>
-            <Link
-              className="text-sm underline"
-              href={ticketPath(String(ticket.id))}
-            >
-              View
-            </Link>
-          </div>
+
+              <Link
+                className="text-sm underline block"
+                href={ticketPath(String(ticket.id))}
+              >
+                View
+              </Link>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>
