@@ -47,7 +47,7 @@ export default function RootLayout({
               className={buttonVariants({ variant: "secondary" })}
               href={ticketsPath()}
             >
-              Tickets
+              Ticket
             </Link>
           </div>
         </nav>
